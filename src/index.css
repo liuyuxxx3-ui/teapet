@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 古风柳叶绿色主题 */
+  --background: 85 30% 96%;
+  --foreground: 140 20% 15%;
+  --card: 85 30% 98%;
+  --card-foreground: 140 20% 15%;
+  --popover: 85 30% 98%;
+  --popover-foreground: 140 20% 15%;
+  --primary: 140 45% 35%;
+  --primary-foreground: 85 30% 96%;
+  --secondary: 85 25% 92%;
+  --secondary-foreground: 140 45% 35%;
+  --muted: 85 20% 90%;
+  --muted-foreground: 140 10% 45%;
+  --accent: 45 80% 50%;
+  --accent-foreground: 140 20% 15%;
+  --destructive: 0 60% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 85 20% 88%;
+  --input: 85 20% 88%;
+  --ring: 140 45% 35%;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'STKaiti', 'KaiTi', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url('/images/backgrounds/app-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+/* Custom scrollbar - 古风风格 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(74, 124, 89, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4A7C59, #8FBC8F);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2D5A3D, #4A7C59);
+}
+
+/* Safe area for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Progress bar customization - 柳叶绿渐变 */
+[data-slot="progress-indicator"] {
+  background: linear-gradient(90deg, #4A7C59 0%, #8FBC8F 50%, #00A86B 100%) !important;
+}
+
+/* Animation utilities - 古风动效 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes willow-sway {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes leaf-fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes ink-spread {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(74, 124, 89, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(74, 124, 89, 0.8), 0 0 40px rgba(143, 188, 143, 0.4);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-willow-sway {
+  animation: willow-sway 4s ease-in-out infinite;
+}
+
+.animate-leaf-fall {
+  animation: leaf-fall 8s linear infinite;
+}
+
+.animate-ink-spread {
+  animation: ink-spread 2s ease-out forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Touch feedback */
+@media (hover: none) {
+  button:active,
+  [role="button"]:active {
+    opacity: 0.8;
+  }
+}
+
+/* 古风卡片样式 */
+.card-ancient {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 220, 0.9));
+  border: 1px solid rgba(74, 124, 89, 0.2);
+  box-shadow: 
+    0 4px 20px rgba(74, 124, 89, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+}
+
+/* 古风按钮样式 */
+.btn-ancient {
+  background: linear-gradient(135deg, #4A7C59, #2D5A3D);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-ancient:hover {
+  background: linear-gradient(135deg, #5A8C69, #3D6A4D);
+  box-shadow: 0 6px 20px rgba(74, 124, 89, 0.4);
+  transform: translateY(-2px);
+}
+
+/* 水墨文字效果 */
+.text-ink {
+  color: #2C3E50;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 玉质光泽效果 */
+.jade-glow {
+  box-shadow: 
+    0 0 10px rgba(0, 168, 107, 0.3),
+    0 0 30px rgba(0, 168, 107, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
